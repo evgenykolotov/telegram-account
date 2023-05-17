@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  account:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-production
+    container_name: account
+    networks:
+      - backend_production
+    restart: always
+
+networks:
+  backend_production:
+    name: telegram_network

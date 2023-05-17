@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  account:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-development
+    restart: always
+    container_name: account
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - backend_development
+
+networks:
+  backend_development:
+    name: telegram_network
