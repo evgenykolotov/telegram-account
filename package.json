@@ -1,6 +1,6 @@
 {
   "name": "telegram-account",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Account service for Telegram Application",
   "author": {
     "name": "Евгений Колотов",
@@ -27,9 +27,11 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.2",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/microservices": "^9.4.1",
     "@nestjs/platform-express": "^9.0.0",
+    "amqp-connection-manager": "^4.1.13",
+    "amqplib": "^0.10.3",
     "cross-env": "^7.0.3",
-    "nestjs-rmq": "^2.8.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },
