@@ -1,8 +1,11 @@
+import { Logger } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { NestFactory } from '@nestjs/core';
+import { getRMQConfig } from '@config/rmq.config';
+import { MicroserviceOptions } from '@nestjs/microservices';
 
 async function bootstrap(): Promise<void> {
-	const app = await NestFactory.create(AppModule);
-	await app.init();
+	const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, getRMQConfig());
+	await app.listen();
 }
-bootstrap();
+bootstrap().then(() => Logger.log('🚀 Telegram-account microservice is running!!!'));
