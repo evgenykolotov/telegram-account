@@ -2,13 +2,31 @@ version: "3.8"
 
 services:
   account:
+    container_name: account
     build:
       context: .
       dockerfile: ./Dockerfile-production
-    container_name: account
     networks:
       - backend_production
     restart: always
+
+  postgres:
+    container_name: postgres
+    image: postgres:12
+    env_file:
+      - environment/.production.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend_development
+    restart: always
+
+volumes:
+  pgdata:
 
 networks:
   backend_production:
