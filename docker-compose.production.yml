@@ -22,7 +22,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - backend_development
+      - backend_production
     restart: always
 
 volumes:
