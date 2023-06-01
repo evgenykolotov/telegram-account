@@ -1,6 +1,7 @@
 FROM node:18.16-alpine AS development
 WORKDIR /app
 ADD package*.json ./
-RUN npm install
+ADD /prisma ./prisma/
+RUN npm ci && npx prisma generate
 ADD . .
 CMD ["npm", "run", "start:dev"]
