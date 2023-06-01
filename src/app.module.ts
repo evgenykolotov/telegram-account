@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
 	imports: [
@@ -8,5 +9,6 @@ import { ConfigModule } from '@nestjs/config';
 			envFilePath: `environment/.${process.env.NODE_ENV}.env`,
 		}),
 	],
+	providers: [PrismaService],
 })
 export class AppModule {}
